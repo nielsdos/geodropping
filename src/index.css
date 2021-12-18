@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  background: #F0F0F0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+input, button {
+  transition: all 0.1s ease-in-out;
+  padding: 0.25em 0.5em;
+  border: 2px solid #C0C0C0;
+  border-radius: 0.25em;
+  background: white;
+  text-align: center;
+  outline: none;
+}
+
+input[readonly] {
+  background: #F0F0F0;
+  cursor: default;
+}
+
+input:hover, input:active, button:hover, button:active {
+  border-color: #1da1f2;
+}
+
+input:focus, button:focus {
+  border-color: #0096ff;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:active {
+  background: #46B9FF;
+  color: white;
+}
+
+.inline-block {
+  display: inline-block;
+  width: 100%;
+}

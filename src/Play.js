@@ -48,12 +48,13 @@ const chartOptions = {
 }
 
 function Play(props) {
-    const {destinationLng, destinationLat, startImage, winRadius} = props;
+    const {destinationLng, destinationLat, startImage, winRadius, revealDistance} = props;
     const [totalTime, setTotalTime] = useState('00:00');
     const viewerContainer = useRef();
     const [graphLabels] = useState([]);
     const [graphYAxis] = useState([]);
     const [didWin, setDidWin] = useState(false);
+    const [revealedDistance, setRevealedDistance] = useState(null);
 
     useEffect(() => {
         let interval = -1;
@@ -71,11 +72,10 @@ function Play(props) {
 
                 // Track for the fancy graph.
                 viewer.getPosition().then(currentLatLng => {
-                    const distance = distanceInKm(destinationLat, destinationLng, currentLatLng.lat, currentLatLng.lng) * 1000;
+                    const distance = (distanceInKm(destinationLat, destinationLng, currentLatLng.lat, currentLatLng.lng) * 1000) | 0;
                     graphLabels.push(timeString);
-                    graphYAxis.push(distance | 0);
-                    // TODO: opt-in option for displaying distance
-                    //console.log('Current distance', distance);
+                    graphYAxis.push(distance);
+                    if (revealDistance) setRevealedDistance(distance);
                     if (distance < winRadius) {
                         clearInterval(interval);
                         setDidWin(true);
@@ -93,6 +93,7 @@ function Play(props) {
     return (
         <>
             <div className="popup" id="timer">{totalTime}</div>
+            {revealedDistance && (<div className="popup" id="distance">{revealedDistance}m</div>)}
             <div className="viewer fill" ref={viewerContainer}/>
             {didWin && (
                 <div className="popup" id="win">
@@ -124,8 +125,8 @@ export default function PlayDecodeWrapper(props) {
     try {
         const {configString} = props.match.params;
         config = JSON.parse(atob(configString));
-        const {d1, d2, wr, s} = config;
-        if (typeof d1 !== 'number' || typeof d2 !== 'number' || typeof wr !== 'number' || typeof s !== 'number')
+        const {d1, d2, wr, s, r} = config;
+        if (typeof d1 !== 'number' || typeof d2 !== 'number' || typeof wr !== 'number' || typeof s !== 'number' || typeof r !== 'boolean')
             throw new Error('Invalid types');
     } catch (_e) {
         return <Error>Invalid challenge.</Error>;
@@ -133,7 +134,13 @@ export default function PlayDecodeWrapper(props) {
     if (config.v !== 1) {
         return <Error>Invalid challenge version.</Error>;
     } else {
-        return <Play config={config} destinationLng={config.d1} destinationLat={config.d2} winRadius={config.wr}
-                     startImage={config.s}/>;
+        return <Play
+            config={config}
+            destinationLng={config.d1}
+            destinationLat={config.d2}
+            winRadius={config.wr}
+            startImage={config.s}
+            revealDistance={config.r}
+        />;
     }
 }

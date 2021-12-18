@@ -17,13 +17,14 @@ function hasLocationSet(location) {
     return location.lng !== 0 || location.lat !== 0;
 }
 
-function encodeConfig(destinationLngLat, winRadius, startImage) {
+function encodeConfig(destinationLngLat, winRadius, startImage, revealDistance) {
     return btoa(JSON.stringify({
         v: 1,
         d1: destinationLngLat.lng,
         d2: destinationLngLat.lat,
         wr: winRadius,
         s: startImage,
+        r: revealDistance,
     }));
 }
 
@@ -51,6 +52,7 @@ export default function CreateChallenge() {
     const [winRadius, setWinRadius] = useState(20);
     const [configString, setConfigString] = useState(null);
     const [urlGenerationStatus, setUrlGenerationStatus] = useState(0);
+    const [revealDistance, setRevealDistance] = useState(false);
 
     const resetMarkerToPreviousPosition = () => {
         // HACK, but I can't be bothered
@@ -61,11 +63,11 @@ export default function CreateChallenge() {
         if (hasLocationSet(destinationLngLat)) {
             setUrlGenerationStatus(0);
             generateStartLocationDebounced(destinationLngLat, droppingRadius, startImage => {
-                setConfigString(encodeConfig(destinationLngLat, winRadius, startImage));
+                setConfigString(encodeConfig(destinationLngLat, winRadius, startImage, revealDistance));
                 setUrlGenerationStatus(1);
             }, () => setUrlGenerationStatus(2));
         }
-    }, [destinationLngLat, droppingRadius, winRadius]);
+    }, [destinationLngLat, droppingRadius, winRadius, revealDistance]);
 
     useEffect(() => {
         marker?.setLngLat(destinationLngLat);
@@ -168,6 +170,9 @@ export default function CreateChallenge() {
                 <br/>
                 <label htmlFor="win-radius">Win radius in meters</label>
                 <input style={{width: '80px'}} id="win-radius" type="number" onChange={e => setWinRadius(e.currentTarget.valueAsNumber)} min={10} value={winRadius} max={100} step={10}/>
+                <br/>
+                <input id="reveal-distance" type="checkbox" onChange={e => setRevealDistance(e.currentTarget.checked)} checked={revealDistance}/>
+                <label htmlFor="reveal-distance">Reveal distance to players</label>
                 <h2>3. Copy URL & share with friends!</h2>
                 <div style={{height: '40px'}}>
                     {

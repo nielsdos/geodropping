@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react';
 import env from 'react-dotenv';
-import {copyToClipboard, debounce, generateRandomLatLngInRadius} from './util';
+import {debounce, generateRandomLatLngInRadius} from './util';
 import {createViewer} from './viewer';
 import {
     getBestRenderFeature,
@@ -11,6 +11,7 @@ import {
 } from './map';
 import maplibregl from 'maplibre-gl';
 import {getImageFor} from './api';
+import CopyButton from './CopyButton';
 
 function hasLocationSet(location) {
     return location.lng !== 0 || location.lat !== 0;
@@ -177,15 +178,7 @@ export default function CreateChallenge() {
                                 <span>Could not find a suitable start location, please modify your destination or parameters and try again</span>
                             ) : (
                                 <>
-                                    <input id="location-bar" value={`${window.location.protocol}//${window.location.host}${env.REACT_APP_BASE_NAME}#/drop/${configString}`} readOnly/> <button className='copy-btn' onClick={e => {
-                                        copyToClipboard(document.getElementById('location-bar'));
-                                        const btn = e.currentTarget;
-                                        const oldText = btn.innerText;
-                                        btn.innerText = 'Copied!';
-                                        setTimeout(() => {
-                                            btn.innerText = oldText;
-                                        }, 1000);
-                                    }}>Copy to clipboard</button>
+                                    <input id="location-bar" value={`${window.location.protocol}//${window.location.host}${env.REACT_APP_BASE_NAME}#/drop/${configString}`} readOnly/> <CopyButton sourceId="location-bar" />
                                 </>
                             )
                         ) : (

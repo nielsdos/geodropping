@@ -17,8 +17,8 @@ The reason for choosing this instead of Google Maps + Streetview is that Googles
 
 ## Known issues
 
-* Mapillary street-level imagary is not complete. Therefore, it's possible that you can't go through all streets or that the images don't have full panorama. You get the best experience when you play in big cities.
-* Since fbcdn hosts the Mapillary images, blocking requests to Facebook's CDN will also block the street-level imagary.
+* Mapillary street-level imagary is not complete. Therefore, it's possible that you can't go through all streets or that the images don't have full panorama. You get the best experience when you play in big cities. I tried mitigating this with the white circle you can click on the street viewer.
+* Since fbcdn hosts the Mapillary images, blocking requests to Facebook's CDN will also block the street-level imagary, often allowing you to go to places even if there are no arrows, by skipping parts of the street.
 
 ## Running and setup
 

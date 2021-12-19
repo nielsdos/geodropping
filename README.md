@@ -24,5 +24,3 @@ The code contains a utility function taken from [Mercantile](https://github.com/
 ## TODO
 
 - [ ] Host this
-- [ ] Include more information and screenshot in readme
-- [ ] Update manifest

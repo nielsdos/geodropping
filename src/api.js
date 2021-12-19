@@ -10,13 +10,13 @@ export async function getImageFor(lng, lat, panoThreshold=0.1) {
     const layer = vt.layers.image;
     if (!layer) return null;
 
+    // TODO: improve performance of this loop
     //console.time('find best');
     let bestDistanceNormal = 9999999;
     let bestFeatureNormal = null;
     let bestDistancePano = 9999999;
     let bestFeaturePano = null;
     for (let i = 0, l = layer._features.length; i < l; ++i) {
-        // TODO: optimize by caching "load geometry" ?
         const feature = layer.feature(i);
         const [lon2, lat2] = feature.toGeoJSON(x, y, z).geometry.coordinates
         const d = distanceInKm(lat, lng, lat2, lon2);

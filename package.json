@@ -1,4 +1,5 @@
 {
+  "homepage": "https://nielsdos.github.io/geodropping",
   "name": "geodropping",
   "version": "0.1.0",
   "private": true,
@@ -11,16 +12,16 @@
     "react": "^17.0.1",
     "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.1",
-    "react-dotenv": "^0.1.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.0"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "react-dotenv && react-scripts start",
-    "build": "react-dotenv && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "eslint": "^8.4.1",
+    "gh-pages": "^3.2.3",
     "source-map-explorer": "^2.5.2"
   }
 }

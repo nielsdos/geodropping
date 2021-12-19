@@ -1,5 +1,4 @@
 import React, {useRef, useEffect, useState} from 'react';
-import env from 'react-dotenv';
 import {debounce, generateRandomLatLngInRadius} from './util';
 import {createViewer} from './viewer';
 import {
@@ -183,7 +182,7 @@ export default function CreateChallenge() {
                                 <span>Could not find a suitable start location, please modify your destination or parameters and try again</span>
                             ) : (
                                 <>
-                                    <input id="location-bar" value={`${window.location.protocol}//${window.location.host}${env.REACT_APP_BASE_NAME}#/drop/${configString}`} readOnly/> <CopyButton sourceId="location-bar" />
+                                    <input id="location-bar" value={`${window.location.protocol}//${window.location.host}${process.env.REACT_APP_BASE_NAME}#/drop/${configString}`} readOnly/> <CopyButton sourceId="location-bar" />
                                 </>
                             )
                         ) : (

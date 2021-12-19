@@ -1,5 +1,4 @@
 import maplibregl from 'maplibre-gl';
-import env from 'react-dotenv';
 
 // https://github.com/mapillary/mapillary-js/blob/6b9bc08769fcea6cf9d5125c7daab6c9daf711cc/doc/src/js/examples/component-marker-map.js#L43
 export function makeMapBoxMarker(options) {
@@ -61,7 +60,7 @@ export function getBestRenderFeature(features) {
 export const MAPILLARY_VECTOR_SOURCE = Object.freeze({
     type: 'vector',
     tiles: [
-        'https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}?access_token=' + env.MAPILLARY_ACCESS_TOKEN
+        'https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}?access_token=' + process.env.REACT_APP_MAPILLARY_ACCESS_TOKEN
     ],
     minzoom: 6,
     maxzoom: 14

@@ -1,5 +1,4 @@
 import {CameraControls, CircleMarker, RenderMode, Viewer} from 'mapillary-js';
-import env from 'react-dotenv';
 import {getImageFor} from './api';
 
 export function createViewer(viewerContainer, setLocationCallback = undefined) {
@@ -14,7 +13,7 @@ export function createViewer(viewerContainer, setLocationCallback = undefined) {
             sequence: false,
             marker: true,
         },
-        accessToken: env.MAPILLARY_ACCESS_TOKEN,
+        accessToken: process.env.REACT_APP_MAPILLARY_ACCESS_TOKEN,
     });
 
     let hoverMarker = null;

@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/geodropping/static/css/main.3200a8c6.css",
-    "main.js": "/geodropping/static/js/main.1d3dbce2.js",
+    "main.js": "/geodropping/static/js/main.8393a374.js",
     "index.html": "/geodropping/index.html",
     "main.3200a8c6.css.map": "/geodropping/static/css/main.3200a8c6.css.map",
-    "main.1d3dbce2.js.map": "/geodropping/static/js/main.1d3dbce2.js.map"
+    "main.8393a374.js.map": "/geodropping/static/js/main.8393a374.js.map"
   },
   "entrypoints": [
     "static/css/main.3200a8c6.css",
-    "static/js/main.1d3dbce2.js"
+    "static/js/main.8393a374.js"
   ]
 }

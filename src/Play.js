@@ -88,7 +88,7 @@ function Play(props) {
             clearInterval(interval);
             viewer.remove();
         };
-    }, [startImage, graphLabels, graphYAxis, destinationLat, destinationLng, winRadius]);
+    }, [startImage, graphLabels, graphYAxis, destinationLat, destinationLng, winRadius, revealDistance]);
 
     return (
         <>

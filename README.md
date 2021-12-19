@@ -1,5 +1,7 @@
 # GeoDropping
 
+Play at https://nielsdos.github.io/geodropping
+
 A game where you are dropped within X meters from a chosen point and have to navigate in street-level imagary towards the destination as fast as possible. You can generate a challenge URL to share with your friends to see who is the fastest.
 
 
@@ -24,7 +26,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The code is licensed under the MIT license unless noted otherwise.
 The code contains a utility function taken from [Mercantile](https://github.com/mapbox/mercantile/) licensed under [BSD-3](https://github.com/mapbox/mercantile/blob/main/LICENSE.txt).
-
-## TODO
-
-- [ ] Host this

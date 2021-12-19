@@ -2,6 +2,10 @@
 
 A game where you are dropped within X meters from a chosen point and have to navigate in street-level imagary towards the destination as fast as possible. You can generate a challenge URL to share with your friends to see who is the fastest.
 
+
+https://user-images.githubusercontent.com/7771979/146659683-e10b651a-c75e-40cf-9fb3-3af8bed72c56.mp4
+
+
 ## Background
 
 This game is inspired by GeoGuessr, it's kinda the "reverse" in a way.

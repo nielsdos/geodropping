@@ -15,6 +15,11 @@ The project uses [OpenStreetMap](https://www.openstreetmap.org/) for displaying 
 
 The reason for choosing this instead of Google Maps + Streetview is that Googles API's cost quite some money that I'm not willing to pay for. An alternative is allowing users to generate an API key themselves, but nobody's gonna do that. Therefore I'm using a free alternative service. Even though Mapillary is less complete than Streetview, it's still mostly playable.
 
+## Known issues
+
+* Mapillary street-level imagary is not complete. Therefore, it's possible that you can't go through all streets or that the images don't have full panorama. You get the best experience when you play in big cities.
+* Since fbcdn hosts the Mapillary images, blocking requests to Facebook's CDN will also block the street-level imagary.
+
 ## Running and setup
 
 Copy `.env.example` to `.env` and change your Mapillary API key to yours.

@@ -149,6 +149,8 @@ export default function CreateChallenge() {
 
     return (
         <div className="create-container container">
+            <a className="github-fork-ribbon right-bottom" href="https://github.com/nielsdos/geodropping" rel="noopener noreferrer" target="_blank" data-ribbon="Fork me on GitHub"
+               title="Fork me on GitHub">Fork me on GitHub</a>
             <div>
                 <h1 className="title">Create challenge</h1>
                 <h2>1. Select a destination location</h2>

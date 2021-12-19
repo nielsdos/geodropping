@@ -57,3 +57,7 @@ button:active {
   display: inline-block;
   width: 100%;
 }
+
+.github-fork-ribbon:before {
+  background-color: black !important;
+}

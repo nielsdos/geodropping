@@ -97,13 +97,17 @@ export default function CreateChallenge() {
         marker.setLngLat([0, 0]);
         setMarkerVisibility(marker, false);
 
+        const moveTo = (id, lngLat) => {
+            viewer.moveTo(id).then(() => {
+                setLocationCallback(lngLat);
+            }).catch(console.error);
+        };
+
         const setViewerPosition = point => {
             const features = queryMapAround(map, point);
             const bestFeature = getBestRenderFeature(features);
             if (bestFeature) {
-                viewer.moveTo(bestFeature.properties.id).then(() => {
-                    setLocationCallback(map.unproject(point));
-                }).catch(console.error);
+                moveTo(bestFeature.properties.id, map.unproject(point));
             } else {
                 setLocationCallback(null);
             }
@@ -114,24 +118,62 @@ export default function CreateChallenge() {
         });
 
         map.on('click', e => {
-            setViewerPosition(e.point);
+            const zoom = map.getZoom();
+            if (zoom >= 6 && zoom < 14) {
+                getImageFor(e.lngLat.lng, e.lngLat.lat).then(id => {
+                    if (id) {
+                        moveTo(id, e.lngLat);
+                    }
+                });
+            } else {
+                setViewerPosition(e.point);
+            }
         });
 
         map.on('load', function () {
             map.addSource('mapillary', MAPILLARY_VECTOR_SOURCE);
+            const lineLayout = {
+                'line-cap': 'round',
+                'line-join': 'round'
+            };
             map.addLayer(
                 {
-                    'id': 'mapillary',
-                    'type': 'circle',
+                    'id': 'sequence-no-panos',
+                    'type': 'line',
                     'source': 'mapillary',
-                    'source-layer': 'image',//'sequence',
-                    //filter: ["==", "is_pano", !0],
+                    'source-layer': 'sequence',
+                    'layout': lineLayout,
+                    'filter': ['==', 'is_pano', false],
                     'paint': {
-                        'circle-opacity': 0.2,
-                        'circle-color': 'rgb(53, 175, 109)',
-                        'circle-radius': 3
+                        'line-opacity': 0.5,
+                        'line-color': 'rgb(53, 175, 109)',
+                        'line-width': 2
                     }
                 }
+            );
+            map.addLayer(
+                {
+                    'id': 'sequence-panos',
+                    'type': 'line',
+                    'source': 'mapillary',
+                    'source-layer': 'sequence',
+                    'layout': lineLayout,
+                    'filter': ['==', 'is_pano', true],
+                    'paint': {
+                        'line-opacity': 0.5,
+                        'line-color': 'rgb(53,96,175)',
+                        'line-width': 2
+                    }
+                }
+            );
+            map.addLayer(
+                {
+                    'id': 'images',
+                    'type': 'circle',
+                    'source': 'mapillary',
+                    'source-layer': 'image',
+                },
+                'osm' // Hide layer
             );
             marker.addTo(map);
         });

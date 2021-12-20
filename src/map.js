@@ -17,7 +17,7 @@ export function makeMapBoxMarker(options) {
 }
 
 const queryOptions = {
-    layers: ['mapillary'],
+    layers: ['images'],
 };
 
 export function queryRenderedFeatures(map, bounds) {
@@ -40,6 +40,7 @@ export function setMarkerVisibility(marker, visibility) {
 }
 
 export function getBestRenderFeature(features) {
+    //console.log(features);
     if (features.length > 0) {
         let first = features[0];
         if (first.properties.is_pano)

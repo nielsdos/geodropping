@@ -9,7 +9,7 @@ import CreateChallenge from './CreateChallenge';
 function App() {
     return (
         <main>
-            <Switch baseName={Math.REACT_APP_BASE_NAME}>
+            <Switch baseName={process.env.REACT_APP_BASE_NAME}>
                 <Route path="/drop/:configString" component={PlayDecodeWrapper} exact/>
                 <Route path="/" component={CreateChallenge}/>
             </Switch>

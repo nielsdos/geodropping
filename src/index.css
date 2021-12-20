@@ -64,3 +64,7 @@ button:active {
 .github-fork-ribbon:before {
   background-color: black !important;
 }
+
+.can-pick .mapboxgl-canvas {
+  cursor: crosshair;
+}

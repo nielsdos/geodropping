@@ -13,6 +13,8 @@ import {getImageFor} from './api';
 import CopyButton from './CopyButton';
 import {Link} from 'react-router-dom';
 
+const MIN_ZOOM_TO_CLICK = 6;
+
 function hasLocationSet(location) {
     return location.lng !== 0 || location.lat !== 0;
 }
@@ -53,6 +55,7 @@ export default function CreateChallenge() {
     const [configString, setConfigString] = useState(null);
     const [urlGenerationStatus, setUrlGenerationStatus] = useState(0);
     const [revealDistance, setRevealDistance] = useState(false);
+    const [canPick, setCanPick] = useState(false);
 
     const resetMarkerToPreviousPosition = () => {
         // HACK, but I can't be bothered
@@ -118,9 +121,13 @@ export default function CreateChallenge() {
             setViewerPosition(map.project(marker.getLngLat()));
         });
 
+        map.on('zoom', _e => {
+            setCanPick(map.getZoom() >= MIN_ZOOM_TO_CLICK);
+        });
+
         map.on('click', e => {
             const zoom = map.getZoom();
-            if (zoom >= 6 && zoom < 14) {
+            if (zoom >= MIN_ZOOM_TO_CLICK && zoom < 14) {
                 getImageFor(e.lngLat.lng, e.lngLat.lat, 0.2).then(id => {
                     if (id) {
                         moveTo(id, e.lngLat);
@@ -199,7 +206,7 @@ export default function CreateChallenge() {
                 <h1 className="title">Create challenge</h1>
                 <h2>1. Select a destination location</h2>
             </div>
-            <div className="sideBySide middle">
+            <div className={`sideBySide middle${canPick ? ' can-pick' : ''}`}>
                 <div className="map" ref={mapContainer}/>
                 <div className="viewer" ref={viewerContainer}>
                     <div className="popup preview">Preview</div>

@@ -22,10 +22,8 @@ export function createViewer(viewerContainer, setLocationCallback = undefined) {
         if (hoverMarker)
             markerComponent.remove([hoverMarker]);
         if (e.lngLat) {
-            /*if (!map || queryRenderedFeatures(map, map.project(e.lngLat)).length > 0)*/ {
-                hoverMarker = new CircleMarker('hover', e.lngLat);
-                markerComponent.add([hoverMarker]);
-            }
+            hoverMarker = new CircleMarker('hover', e.lngLat);
+            markerComponent.add([hoverMarker]);
         }
     });
 

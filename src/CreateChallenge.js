@@ -11,6 +11,7 @@ import {
 import maplibregl from 'maplibre-gl';
 import {getImageFor} from './api';
 import CopyButton from './CopyButton';
+import {Link} from 'react-router-dom';
 
 function hasLocationSet(location) {
     return location.lng !== 0 || location.lat !== 0;
@@ -194,6 +195,7 @@ export default function CreateChallenge() {
             <a className="github-fork-ribbon right-bottom" href="https://github.com/nielsdos/geodropping" rel="noopener noreferrer" target="_blank" data-ribbon="Fork me on GitHub"
                title="Fork me on GitHub">Fork me on GitHub</a>
             <div>
+                <button className="help-btn"><Link to="help" target="_blank">Help</Link></button>
                 <h1 className="title">Create challenge</h1>
                 <h2>1. Select a destination location</h2>
             </div>

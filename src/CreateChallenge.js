@@ -120,7 +120,7 @@ export default function CreateChallenge() {
         map.on('click', e => {
             const zoom = map.getZoom();
             if (zoom >= 6 && zoom < 14) {
-                getImageFor(e.lngLat.lng, e.lngLat.lat).then(id => {
+                getImageFor(e.lngLat.lng, e.lngLat.lat, 0.2).then(id => {
                     if (id) {
                         moveTo(id, e.lngLat);
                     }

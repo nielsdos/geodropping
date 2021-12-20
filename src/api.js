@@ -2,7 +2,7 @@ import {distanceInKm, tile} from './util';
 import {VectorTile} from '@mapbox/vector-tile';
 import Pbf from 'pbf';
 
-export async function getImageFor(lng, lat, panoThreshold=0.1) {
+export async function getImageFor(lng, lat, panoThreshold=0.05) {
     const [x, y, z] = tile(lng, lat, 14);
     const res = await fetch(`https://tiles.mapillary.com/maps/vtp/mly1_public/2/${z}/${x}/${y}?access_token=${process.env.REACT_APP_MAPILLARY_ACCESS_TOKEN}`);
     const buffer = await res.arrayBuffer();

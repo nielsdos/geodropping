@@ -59,6 +59,7 @@ h1,h2,h3,h4,h5,h6 {
   left: 50%;
   transform: translate(-50%, 0);
   top: 0.25em;
+  pointer-events: none;
 }
 
 .viewer-notification {
@@ -69,6 +70,7 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 2em;
   color: white;
   text-align: center;
+  pointer-events: none;
 }
 
 .create-container {

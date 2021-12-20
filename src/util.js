@@ -71,11 +71,10 @@ export function copyToClipboard(element) {
 export function debounce(fn, delay) {
     let timer = -1;
     return function(...args) {
-        const realDelay = timer === -1 ? 10 : delay;
         clearTimeout(timer);
         timer = setTimeout(() => {
             fn(...args);
             timer = -1;
-        }, realDelay);
+        }, delay);
     };
 }

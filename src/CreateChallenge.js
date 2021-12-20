@@ -39,7 +39,7 @@ function generateStartLocation(destinationLngLat, droppingRadius, successCallbac
     })().then(successCallback).catch(errorCallback);
 }
 
-const generateStartLocationDebounced = debounce(generateStartLocation, 100);
+const generateStartLocationDebounced = debounce(generateStartLocation, 150);
 
 export default function CreateChallenge() {
     const viewerContainer = useRef();

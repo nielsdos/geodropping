@@ -32,7 +32,6 @@ input, button {
   border-radius: 0.25em;
   background: white;
   text-align: center;
-  outline: none;
 }
 
 input[readonly] {

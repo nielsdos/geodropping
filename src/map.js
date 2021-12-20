@@ -63,7 +63,7 @@ export const MAPILLARY_VECTOR_SOURCE = Object.freeze({
     tiles: [
         'https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}?access_token=' + process.env.REACT_APP_MAPILLARY_ACCESS_TOKEN
     ],
-    minzoom: 6,
+    minzoom: 7,
     maxzoom: 14
 });
 

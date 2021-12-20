@@ -53,7 +53,7 @@ button {
 
 button:active {
   background: #46B9FF;
-  color: white;
+  color: white !important;
 }
 
 .inline-block {

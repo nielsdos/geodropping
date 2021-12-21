@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/geodropping/static/css/main.a8df3a90.css",
-    "main.js": "/geodropping/static/js/main.b134bb7b.js",
+    "main.css": "/geodropping/static/css/main.1b3a3098.css",
+    "main.js": "/geodropping/static/js/main.946495a2.js",
     "index.html": "/geodropping/index.html",
-    "main.a8df3a90.css.map": "/geodropping/static/css/main.a8df3a90.css.map",
-    "main.b134bb7b.js.map": "/geodropping/static/js/main.b134bb7b.js.map"
+    "main.1b3a3098.css.map": "/geodropping/static/css/main.1b3a3098.css.map",
+    "main.946495a2.js.map": "/geodropping/static/js/main.946495a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.a8df3a90.css",
-    "static/js/main.b134bb7b.js"
+    "static/css/main.1b3a3098.css",
+    "static/js/main.946495a2.js"
   ]
 }

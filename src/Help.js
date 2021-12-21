@@ -2,6 +2,13 @@ export default function Help() {
     return (
         <div className="container">
             <h1>Help</h1>
+
+            <h2>Demo</h2>
+            <video
+                src="https://user-images.githubusercontent.com/7771979/146984824-ec995352-4b50-4ca9-978b-e4006bf14065.mp4"
+                data-canonical-src="https://user-images.githubusercontent.com/7771979/146984824-ec995352-4b50-4ca9-978b-e4006bf14065.mp4"
+                controls="controls" muted="muted"/>
+
             <h2>Recommendations</h2>
             <p>
                 <strong>Blue lines</strong> on the map show where panoramas are available.<br />

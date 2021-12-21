@@ -9,6 +9,14 @@ export default function Help() {
             </p>
             <p>It is recommended to try this game in big cities with <strong>panoramas</strong>.</p>
 
+            <h2>Questions</h2>
+            <ul>
+                <li>
+                    <h3>Why no Google Street View?</h3>
+                    Google Street View requires a billing account on the Google Cloud Console.
+                </li>
+            </ul>
+
             <h2>Known issues</h2>
             <ul>
                 <li>

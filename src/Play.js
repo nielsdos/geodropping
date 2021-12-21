@@ -55,6 +55,7 @@ function Play(props) {
     const [graphYAxis] = useState([]);
     const [didWin, setDidWin] = useState(false);
     const [revealedDistance, setRevealedDistance] = useState(null);
+    const [clicks, setClicks] = useState(0);
 
     useEffect(() => {
         let interval = -1;
@@ -84,6 +85,8 @@ function Play(props) {
             }, 500);
         });
 
+        viewer.on('image', _e => setClicks(c => c + 1));
+
         return () => {
             clearInterval(interval);
             viewer.remove();
@@ -92,7 +95,7 @@ function Play(props) {
 
     return (
         <>
-            <div className="popup" id="timer">{totalTime}</div>
+            <div className="popup" id="timer">{totalTime}<br/>{Math.max(0, clicks - 1)} clicks</div>
             {revealedDistance && (<div className="popup" id="distance">{revealedDistance}m</div>)}
             <div className="viewer fill" ref={viewerContainer}/>
             {didWin && (

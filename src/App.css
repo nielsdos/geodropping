@@ -115,3 +115,7 @@ button > a {
 li {
   margin-bottom: 0.5em;
 }
+
+video {
+  max-width: 640px;
+}

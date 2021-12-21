@@ -101,7 +101,7 @@ function Play(props) {
             {didWin && (
                 <div className="popup" id="win">
                     <span className="title inline-block">
-                        Won in {totalTime}!
+                        Won in {totalTime} with {clicks} clicks!
                     </span>
                     <Line data={{
                         labels: graphLabels,

@@ -5,7 +5,7 @@ Play at https://nielsdos.github.io/geodropping
 A game where you are dropped within X meters from a chosen point and have to navigate in street-level imagary towards the destination as fast as possible. You can generate a challenge URL to share with your friends to see who is the fastest.
 
 
-https://user-images.githubusercontent.com/7771979/146659683-e10b651a-c75e-40cf-9fb3-3af8bed72c56.mp4
+https://user-images.githubusercontent.com/7771979/146984824-ec995352-4b50-4ca9-978b-e4006bf14065.mp4
 
 
 ## Background
